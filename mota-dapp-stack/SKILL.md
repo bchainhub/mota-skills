@@ -247,6 +247,46 @@ Plugins: `sveltekit()`, Tailwind, optional VitePWA. Client config object → `de
 
 ---
 
+**Core principles (non-negotiable):**
+
+- SvelteKit-first. No custom servers or other web frameworks.
+- File-based routing under `src/routes` only.
+- TypeScript everywhere. Avoid `any` unless justified.
+- Simplicity and local reasoning over abstraction.
+- Security fixes always override convenience; vulnerable solutions must be replaced.
+- Create separate helper functions in `$lib/helpers` instead of adding them to the main file.
+
+**Dependency updates:** Use `ncu -i`; review manually; prefer latest stable; breaking upgrades must document impact, include migration, update tests.
+
+**Technology constraints:**
+
+- **Frontend:** SvelteKit, Tailwind CSS, Lucide icons. No component libraries unless approved.
+- **Backend:** SvelteKit server routes, native Web APIs, Supabase or other SQL-compatible; no separate backend unless necessary.
+- **State:** `svelte/store` only. No Redux/Zustand/MobX.
+- **i18n:** If used, **typesafe-i18n** only. Scripts: `typesafe-i18n`, `i18n:extract`, `i18n:watch`. Run `i18n:watch` during translation work.
+
+**Full-stack / domain libraries (first-class primitives):** blockchain-wallet-validator, country-codes-and-flags, device-sherlock, exchange-rounding, payto-rl, txms.js, @blockchainhub/ican, typesafe-i18n, vite-plugin-pwa.
+
+**Domain protocols and concepts** (respect semantics; do not invent alternatives):
+
+- **ICAN** (International Crypto Account Number): IBAN-like for crypto. Format: country/network prefix + checksum + BBAN. Spec: https://payto.onl/solutions/ican. Validate with proper checksum (ican.js).
+- **Payto:** Universal payment routing (RFC 8905 extension). Use Payto URLs for payment routing. Spec: https://payto.onl/solutions/payto, https://payto.money/, https://github.com/core-laboratories/payto.
+- **Fintag:** Human-friendly alias/metadata discovery (HTML meta or `.well-known`). Treat as resolvable identifiers, not raw addresses.
+- **TxMS** (Transaction Message System): Message-based transaction transport. Not "Transaction Management System". Core mainnet: +12019715152; testnet (Devín): +12014835939. Spec: https://payto.onl/solutions/txms.
+- **PayPass:** Payment identifier as mobile wallet pass (.pkpass / Google Wallet). Spec: https://payto.onl/solutions/paypass.
+- **ORIC** (Organization Identification Code): Organization identifier. API: https://oric.payto.onl/. Spec: https://payto.onl/solutions/oric.
+
+**Authentication and identity:**
+
+- Passkey (WebAuthn) or CorePass connector. CorePass: https://corepass.net/ (identity wallet, Passkey support).
+- **CorePass enriched identity:** Registration can provide (with consent) email, o18y, o21y, kyc, kycDoc, dataExp. Data provided once, signed by user CoreID (Ed448); trust only if signature valid.
+- **Data expiration:** `dataExp` (minutes). Server: `provided_till = now + (dataExp * 60)`. Enforce strictly; never extend without new signature; expired data = non-existent.
+- **Enrichment endpoint:** `POST /webauthn/data`. Plugin repository: https://github.com/CorePass/better-auth-corepass-passkey
+
+**Formatting:** Follow `.editorconfig` if present. Else: tabs, tab width 4; no tabs↔spaces mix; no trailing whitespace; files end with one newline. Reformat to match.
+
+---
+
 ## Contributing and Code of Conduct
 
 **Contributing (CONTRIBUTING.md):** Open an issue → fork and clone → create a branch → make changes → push and open a PR. Follow existing style; ensure tests/docs as needed. Contributions under same license as project (see `LICENSE`).
