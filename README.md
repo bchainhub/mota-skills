@@ -1,65 +1,36 @@
 # MOTA Skills
 
-Skill pack for the **MOTA ĐApp stack**: SvelteKit, [ĐApp Starter](https://github.com/bchainhub/dapp-starter) (dapp-starter), addon CLI, and [mota-dapp](https://github.com/bchainhub/mota-dapp) project structure. These skills help AI assistants (Cursor, Claude Code, Copilot, Continue, etc.) follow the right conventions when working in your repo.
+Project guidance for MOTA ĐApp templates, installed SvelteKit 3 applications, ĐApp Starter addons and Core payment integrations.
 
-## Folder structure
+## Included skill
 
-This repo follows the [skills.sh skill anatomy](https://skills.sh/anthropics/skills/skill-creator): **one folder per skill**, with `SKILL.md` inside and optional `scripts/`, `references/`, and `assets/` for bundled resources.
+[mota-dapp-stack](mota-dapp-stack/SKILL.md) has a small entrypoint and focused references. Load only the material needed for the task.
 
-```text
-mota-skills/
-├── README.md
-└── mota-dapp-stack/
-    └── SKILL.md
-```
+| Guide | Contents |
+| --- | --- |
+| [SvelteKit 3](mota-dapp-stack/references/sveltekit-3.md) | Migration map, typed env, #lib imports, template/demo parity and PWA verification |
+| [Starter and addons](mota-dapp-stack/references/starter-addons.md) | Installer CLI, existing .npmrc repairs, addon execution, prompts and merges |
+| [Databases](mota-dapp-stack/references/databases.md) | Server connections, Drizzle setup and committed/private migration history |
+| [Site config](mota-dapp-stack/references/site-config.md) | Navigation, footer/liner, icons, logos, themes, translations and OG/SEO |
+| [Wallets](mota-dapp-stack/references/wallets/index.md) | Wallet integration catalog, Connect.js connection, signing and operations |
+| [Authentication](mota-dapp-stack/references/auth/index.md) | Provider catalog; Connect.js authentication, Better Auth setup and plugins |
+| [CoreCDN icons](mota-dapp-stack/references/corecdn.md) | Hosted icons, image rendering, menus/logos and offline use |
+| [Cloudflare](mota-dapp-stack/references/cloudflare.md) | Pages/Workers, Node LTS selection, D1/KV bindings, cron, email and Durable Object WebSockets |
+| [IPFS gateway](mota-dapp-stack/references/ipfs.md) | ipf.sk IPFS/IPNS links, subdomains, application usage and gateway Worker configuration |
+| [Helpers](mota-dapp-stack/references/helpers.md) | Existing template helper APIs |
+| [Blockchain and Connect](mota-dapp-stack/references/blockchain-connect.md) | CoreBC, browser Connect, mainnet/Devin RPC/WebSocket and identity boundaries |
+| [Payment protocols](mota-dapp-stack/references/payment-protocols.md) | ICAN, lowercase Core blockies, FinTag, Payto-RL, PayPass and SMS/TxMS |
+| [CorePort](mota-dapp-stack/references/coreport.md) | Payment, donation, booster and ramp link generation; merchant integration and webhook verification |
+| [Sources](mota-dapp-stack/references/sources.md) | Source files and upstream documentation |
 
-- **mota-dapp-stack** – ĐApp Starter installer, addon CLI (order of execution, options, versioning), addon file roles (prompt.js, _scripts, _config, _lang, _migrations), mota-dapp layout, SvelteKit routing (`[param]`, `[[param]]`, `(group)`), env vars, Vite config, CONTRIBUTING/Code of Conduct.
+## Install
 
-More skills can be added as new folders (e.g. `another-skill/SKILL.md`) later.
+Using a reviewed version of the skills CLI:
 
-## How to install
-
-### Using skills.sh (recommended)
-
-If you use the [skills.sh](https://skills.sh) CLI (e.g. in Cursor, Claude Code, or from the terminal):
-
-**Install the whole repo** (adds all skills in this repo):
-
-```bash
-npx skills add bchainhub/mota-skills
-```
-
-**Install only the MOTA ĐApp Stack skill** (same repo, single skill):
-
-```bash
+```sh
 npx skills add bchainhub/mota-skills --skill mota-dapp-stack
 ```
 
-From a GitHub URL:
+For local review, point the agent at this checkout's mota-dapp-stack/SKILL.md. Copy the whole skill folder, including references, when installing manually. The GitHub installation command fetches the published repository; unpushed local changes are not available through it. Reinstallation can replace local installed edits.
 
-```bash
-npx skills add https://github.com/bchainhub/mota-skills --skill mota-dapp-stack
-```
-
-After installation, the skill is available to your agent when its description matches the task (e.g. editing SvelteKit routes, running addons, or working with dapp-starter/mota-dapp).
-
-### Without skills.sh
-
-- **Cursor / IDE:** Add this repo (or the `mota-dapp-stack` folder) to your project or agent context so the assistant can read `mota-dapp-stack/SKILL.md` when working on SvelteKit, addons, or dapp-starter.
-- **Manual:** Clone or download the repo and point your workflow at `mota-dapp-stack/SKILL.md` as a reference doc.
-
-## What the skill covers
-
-- **ĐApp Starter:** `npx github:bchainhub/dapp-starter`, template (mota-dapp), `--update`, default packages, what the installer sets up.
-- **Addon CLI:** `npx addon <repo> <generator> <action>`, versioning with `#ref`, flags (`-c`, `-d`, `-nt`, `-ns`, `-nc`), and the exact execution order (fetch → prompts → Hygen → _scripts → _config → _lang → typesafe-i18n).
-- **Addon files:** prompt.js (array/function), *.ejs.t, _scripts, _config (client-only, no secrets), _lang ($path, $remove), _migrations.
-- **mota-dapp:** `src/routes` (e.g. `[[lang]]`, `api/[version]`), `src/lib`, `src/i18n`, `app.d.ts`, `vite.config.ts` and `__SITE_CONFIG__`.
-- **SvelteKit:** Route segments `[param]`, `[[param]]`, `(group)`; env: `$env/static/private`, `$env/dynamic/private`, `import.meta.env`, `VITE_*`.
-- **Governance:** CONTRIBUTING (issue → fork → branch → PR), Code of Conduct summary.
-
-## Links
-
-- [skills.sh](https://skills.sh) – Discover and add skills for your agent.
-- [Skill creator](https://skills.sh/anthropics/skills/skill-creator) – How to write and structure skills (folder per skill, YAML frontmatter, SKILL.md).
-- [ĐApp Starter](https://github.com/bchainhub/dapp-starter) – Installer and docs.
-- [mota-dapp](https://github.com/bchainhub/mota-dapp) – SvelteKit template repo.
+The installed demo copy is under `.agents/skills/mota-dapp-stack`. Package installations, lockfiles and generated output belong in the installed application, not the template-only mota-dapp repository. Mirror shared application fixes without overwriting demo-specific configuration.
