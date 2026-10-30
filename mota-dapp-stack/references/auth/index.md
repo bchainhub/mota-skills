@@ -2,6 +2,10 @@
 
 Authentication is optional. Choose the provider requested by the user or already used by the application, then read its implementation guide. A browser wallet connection alone does not establish a server session. Keep provider credentials and database access server-only, and integrate with the existing MOTA auth module, hooks and session shape.
 
+For `manualConnect`, browser wallet state and CIP/EIP-6963 discovery, read the
+[built-in Web3 connector](../wallets/web3.md). It participates in MOTA navigation
+but does not create a server-authenticated session.
+
 ## Available providers
 
 | Provider | Methods and integrations | Guide |
