@@ -48,6 +48,8 @@ Use `to` for a real local route, `href` for an external URL or mailto/tel, and `
 
 Auth action keys currently include signin/login, signout/logout, register, manualConnect and disconnectWallet; Header resolves these at runtime. Visibility `show` supports loggedIn/loggedOut, connected/disconnected, authIn/authOut, always/hide, and `and`/`or` with parentheses. UI visibility is not server authorization. Confirm that auth modules and the referenced handlers exist.
 
+For the built-in [Web3 connector](wallets/web3.md), a logged-in account menu replaces the first `manualConnect` item in its configured position and order, even when Connect has `show: disconnected`. Without that slot the account menu uses the controls area. Keep the account label regular weight. Configure any requested Connect button styling with Tailwind `className` in `vite.config.ts`; the hamburger action keeps its own plain styling.
+
 Icons are lowercase kebab-case keys. Icon.svelte has a few inline social SVGs (including github and x); Lucide names resolve through src/lib/components/icon/iconRegistry.ts. If a requested icon shows ×, import the named component from @lucide/svelte and add it to that registry. Do not assume every Lucide name is already registered or that a URL is accepted as an icon. For custom image icons extend the renderer explicitly and validate the source.
 
 ## Fixed, hiding and vertical menu

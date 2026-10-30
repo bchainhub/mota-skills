@@ -12,7 +12,7 @@ Project guidance for MOTA ƒêApp templates, installed SvelteKit 3 applications, ƒ
 | [Starter and addons](mota-dapp-stack/references/starter-addons.md) | Installer CLI, existing .npmrc repairs, addon execution, prompts and merges |
 | [Databases](mota-dapp-stack/references/databases.md) | Server connections, Drizzle setup and committed/private migration history |
 | [Site config](mota-dapp-stack/references/site-config.md) | Navigation, footer/liner, icons, logos, themes, translations and OG/SEO |
-| [Wallets](mota-dapp-stack/references/wallets/index.md) | Wallet integration catalog, Connect.js connection, signing and operations |
+| [Wallets](mota-dapp-stack/references/wallets/index.md) | Built-in Web3 connector (CIP/EIP/custom 6963), Connect.js connection, signing and operations |
 | [Authentication](mota-dapp-stack/references/auth/index.md) | Provider catalog; Connect.js authentication, Better Auth setup and plugins |
 | [CoreCDN icons](mota-dapp-stack/references/corecdn.md) | Hosted icons, image rendering, menus/logos and offline use |
 | [Cloudflare](mota-dapp-stack/references/cloudflare.md) | Pages/Workers, Node LTS selection, D1/KV bindings, cron, email and Durable Object WebSockets |

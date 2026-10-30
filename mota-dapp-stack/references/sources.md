@@ -6,6 +6,7 @@ Prefer the installed package's exports and types over stale README examples. Loc
 | --- | --- |
 | Starter | [dapp-starter](https://github.com/bchainhub/dapp-starter): README.md, start.mjs, scripts/addon.mjs |
 | Template | [mota-dapp](https://github.com/bchainhub/mota-dapp): vite.config.ts, src/app.d.ts, components, locale layout and helpers |
+| Web3 connector | Local `mota-dapp` / `mota-demo`: `src/lib/modules/auth/web3.ts`, `discovery.ts`, `nav-actions.ts`, header/dropdown components, `src/app.d.ts`, demo `vite.config.ts` and behavior tests. User-supplied local `cip/cip/interface/cip-6963.md` (draft, 2026-10-30); [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963). Local changes may precede publication. |
 | SvelteKit | [Migration guide](https://svelte.dev/docs/kit/migrating-to-sveltekit-3), [private env](https://svelte.dev/docs/kit/$app-env-private), installed @sveltejs/kit types |
 | Database | [Drizzle config](https://orm.drizzle.team/docs/drizzle-config-file), [migrations](https://orm.drizzle.team/docs/migrations), [PostgreSQL drivers](https://orm.drizzle.team/docs/get-started-postgresql); local passkey addon DB/script/prompt templates |
 | CoreBC | [CorePass/corebc.js](https://github.com/CorePass/corebc.js): README, package exports and provider/unit APIs |

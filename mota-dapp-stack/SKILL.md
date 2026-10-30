@@ -1,6 +1,6 @@
 ---
 name: mota-dapp-stack
-description: Maintain MOTA ĐApp templates and installed apps on SvelteKit 3. Configure ĐApp Starter addons, prompts, databases, navigation, themes, translations and SEO; configure Cloudflare hosting, bindings and services; compose IPFS/IPNS gateway links; add optional Better Auth login/signup, CorePass passkeys, Better Connect sessions and CoreCDN icons; integrate Core Blockchain, Connect, ICAN, FinTag, PayTo, TxMS and CorePort when requested.
+description: Maintain MOTA ĐApp templates and installed apps on SvelteKit 3. Configure ĐApp Starter addons, prompts, databases, navigation, themes, translations and SEO; configure Cloudflare hosting, bindings and services; compose IPFS/IPNS gateway links; configure injected Web3 wallets with CIP/EIP-6963; add optional Better Auth login/signup, CorePass passkeys, Better Connect sessions and CoreCDN icons; integrate Core Blockchain, Connect, ICAN, FinTag, PayTo, TxMS and CorePort when requested.
 ---
 
 # MOTA ĐApp stack
@@ -23,7 +23,7 @@ Do not interpolate unchecked prompt values into shell source, evaluate fetched s
 | Installer/CLI, interactive package updates (`ncu -i`), `.npmrc`, addon flags, prompts, config and translation merges | [Starter and addons](references/starter-addons.md) |
 | Server DB connections, schema, public or private migration history | [Databases and migrations](references/databases.md) |
 | `vite.config.ts`, menus, footer, logos, icons, theme, i18n, OG/SEO | [Site configuration](references/site-config.md) |
-| Wallet integration choices, connection and signing | [Wallets](references/wallets/index.md) |
+| Injected Web3 connectors (CIP/EIP/custom 6963), wallet integration choices, connection and signing | [Wallets](references/wallets/index.md) |
 | Authentication providers and their login/signup implementation guides | [Authentication](references/auth/index.md) |
 | Hosted CoreCDN images, logo/menu integration and offline availability | [CoreCDN icons](references/corecdn.md) |
 | Cloudflare Pages/Workers, Node LTS, D1/KV, cron, email and Durable Object WebSockets | [Cloudflare](references/cloudflare.md) |
